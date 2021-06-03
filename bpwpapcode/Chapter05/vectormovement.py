@@ -4,7 +4,7 @@ sprite_image_filename = 'fugu.png'
 import pygame
 from pygame.locals import *
 from sys import exit
-import simplevec
+import pygame.math as math
 
 pygame.init()
 
@@ -15,8 +15,8 @@ sprite = pygame.image.load(sprite_image_filename).convert_alpha()
 
 clock = pygame.time.Clock()
 
-position = simplevec.Vector2(100.0, 100.0)
-heading = simplevec.Vector2()
+position = math.Vector2(100.0, 100.0)
+heading = math.Vector2()
 
 while True:
     
@@ -31,12 +31,12 @@ while True:
     time_passed = clock.tick()
     time_passed_seconds = time_passed / 1000.0
     
-    destination = simplevec.Vector2( *pygame.mouse.get_pos() ) - simplevec.Vector2( *sprite.get_size() )/2
-    vector_to_mouse = simplevec.Vector2.from_points(position, destination)
-    vector_to_mouse.normalize()
-    
+    destination = math.Vector2(pygame.mouse.get_pos()) - math.Vector2(sprite.get_size())/2
+    vector_to_mouse = destination - position
+    vector_to_mouse = math.Vector2(vector_to_mouse.x/vector_to_mouse.length(), vector_to_mouse.y/vector_to_mouse.length())
     heading = heading + (vector_to_mouse *.6)    
     
     position += heading * time_passed_seconds
+
     pygame.display.update()
     
