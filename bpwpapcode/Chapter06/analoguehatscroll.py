@@ -3,7 +3,8 @@ picture_file = 'cat.jpg'
 import pygame
 from pygame.locals import *
 from sys import exit
-from gameobjects.vector2 import Vector2
+from pygame.math import Vector2
+
 
 pygame.init()
 screen = pygame.display.set_mode((640, 480), 0, 32)
@@ -20,7 +21,7 @@ if pygame.joystick.get_count() > 0:
     joystick.init()
 
 if joystick is None:
-    print "Sorry, you need a joystick for this!"
+    print ("Sorry, you need a joystick for this!")
     exit()
 
 while True:

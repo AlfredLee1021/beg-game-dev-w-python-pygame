@@ -17,10 +17,10 @@ class AntGrid(object):
     def clear(self):
         
         self.rows = []
-        for col_no in xrange(self.height):
+        for col_no in range(self.height):
             new_row = []
             self.rows.append(new_row)
-            for row_no in xrange(self.width):
+            for row_no in range(self.width):
                 new_row.append(False)
     
     def swap(self, x, y):        
@@ -125,7 +125,7 @@ def run():
         grid.render(screen, ((255, 255, 255), (0, 128, 0)), GRID_SQUARE_SIZE)
     
         if running:
-            for iteration_no in xrange(ITERATIONS):        
+            for iteration_no in range(ITERATIONS):        
                 for ant in ants:
                     ant.move()
             total_iterations += ITERATIONS

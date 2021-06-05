@@ -12,7 +12,7 @@ font_height = font.get_linesize()
 event_text = []
 
 joysticks = []
-for joystick_no in xrange(pygame.joystick.get_count()):
+for joystick_no in range(pygame.joystick.get_count()):
     stick = pygame.joystick.Joystick(joystick_no)
     stick.init()
     joysticks.append(stick)

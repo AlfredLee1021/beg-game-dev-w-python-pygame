@@ -19,7 +19,7 @@ def run():
     stars = []
     
     # Add a few stars for the first frame
-    for n in xrange(200):
+    for n in range(200):
         
         x = float(randint(0, 639))
         y = float(randint(0, 479))
