@@ -3,7 +3,7 @@ CUBE_SIZE = 300
 
 import pygame
 from pygame.locals import *
-from gameobjects.vector3 import Vector3
+from pygame.math import Vector3
 
 from math import *
 from random import randint
@@ -104,7 +104,8 @@ def run():
             w = SCREEN_SIZE[0]
             viewing_distance = calculate_viewing_distance(radians(fov), w)
         
-        camera_position += direction * camera_speed * time_passed_seconds       
+        camera_position += direction.cross(camera_speed)* time_passed_seconds       
+       # camera_position += direction
         
         # Draw the 3D points
         for point in points:

@@ -3,8 +3,8 @@ CUBE_SIZE = 300
 
 import pygame
 from pygame.locals import *
-from gameobjects.vector3 import Vector3
-from gameobjects.matrix44 import Matrix44 as Matrix
+from pygame.math import Vector3
+from pygame.math import Matrix44 as Matrix
 
 from math import *
 from random import randint

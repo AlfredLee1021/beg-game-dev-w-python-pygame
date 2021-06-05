@@ -1,15 +1,15 @@
-from gameobjects.vector3 import *
+from pygame.math import Vector3
 
 A = Vector3(6, 8, 12)
 B = Vector3(10, 16, 12)
 
-print "A is", A
-print "B is", B
-print "Length of A is", A.get_magnitude()
-print "A+B is", A+B
-print "A-B is", A-B
-print "A normalized is", A.get_normalized()
-print "A*2 is", A * 2
+print ("A is", A)
+print ("B is", B)
+print ("Length of A is", A.length())
+print ("A+B is", A+B)
+print ("A-B is", A-B)
+print ("A normalized is", A.normalize())
+print ("A*2 is", A * 2)
 
 class Vector3(object):
     

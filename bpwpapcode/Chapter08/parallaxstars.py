@@ -60,7 +60,10 @@ def run():
             return star.x > 0
         
         # Remove stars that are no longer visible
-        stars = filter(on_screen, stars)
+        # stars = filter(on_screen, stars)
+        for star in stars: 
+            if not on_screen:
+                del star
             
         pygame.display.update()
             
