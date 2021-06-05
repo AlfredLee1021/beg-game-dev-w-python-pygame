@@ -63,7 +63,7 @@ while True:
     if abs(axis_y) <0.05:
         axis_y = 0.            
     rotation_direction -= axis_x
-    print axis_y
+    print (axis_y)
     movement_direction = axis_y
         
     screen.blit(background, (0,0))
