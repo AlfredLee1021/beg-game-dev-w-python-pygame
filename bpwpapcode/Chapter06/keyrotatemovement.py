@@ -4,7 +4,7 @@ sprite_image_filename = 'fugu.png'
 import pygame
 from pygame.locals import *
 from sys import exit
-from gameobjects.vector2 import Vector2
+import pygame.math as math 
 from math import *
 
 pygame.init()
@@ -16,7 +16,7 @@ sprite = pygame.image.load(sprite_image_filename).convert_alpha()
 
 clock = pygame.time.Clock()
 
-sprite_pos = Vector2(200, 150)
+sprite_pos = math.Vector2(200, 150)
 sprite_speed = 300.
 sprite_rotation = 0.
 sprite_rotation_speed = 360. # Degrees per second
@@ -45,7 +45,7 @@ while True:
     
     rotated_sprite = pygame.transform.rotate(sprite, sprite_rotation)
     w, h = rotated_sprite.get_size()
-    sprite_draw_pos = Vector2(sprite_pos.x-w/2, sprite_pos.y-h/2)
+    sprite_draw_pos = math.Vector2(sprite_pos.x-w/2, sprite_pos.y-h/2)
     screen.blit(rotated_sprite, sprite_draw_pos)
     
     time_passed = clock.tick()
@@ -55,7 +55,7 @@ while True:
     
     heading_x = sin(sprite_rotation*pi/180.)
     heading_y = cos(sprite_rotation*pi/180.)
-    heading = Vector2(heading_x, heading_y)
+    heading = math.Vector2(heading_x, heading_y)
     heading *= movement_direction
     
     sprite_pos+= heading * sprite_speed * time_passed_seconds

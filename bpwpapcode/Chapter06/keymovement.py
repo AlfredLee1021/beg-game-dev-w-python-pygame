@@ -4,8 +4,7 @@ sprite_image_filename = 'fugu.png'
 import pygame
 from pygame.locals import *
 from sys import exit
-from gameobjects.vector2 import Vector2
-
+import pygame.math as math 
 pygame.init()
 
 screen = pygame.display.set_mode((640, 480), 0, 32)
@@ -15,7 +14,7 @@ sprite = pygame.image.load(sprite_image_filename).convert_alpha()
 
 clock = pygame.time.Clock()
 
-sprite_pos = Vector2(200, 150)
+sprite_pos = math.Vector2(200, 150)
 sprite_speed = 300.
 
 while True:
@@ -26,7 +25,7 @@ while True:
         
     pressed_keys = pygame.key.get_pressed()
     
-    key_direction = Vector2(0, 0)
+    key_direction = math.Vector2(0, 0)
     if pressed_keys[K_LEFT]:
         key_direction.x = -1
     elif pressed_keys[K_RIGHT]:
@@ -35,9 +34,9 @@ while True:
         key_direction.y = -1
     elif pressed_keys[K_DOWN]:
         key_direction.y = +1
-            
+    assert key_direction.length() != 0     
     key_direction.normalize()
-                
+              
     screen.blit(background, (0,0))
     screen.blit(sprite, sprite_pos)
     
