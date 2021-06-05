@@ -34,8 +34,8 @@ while True:
         key_direction.y = -1
     elif pressed_keys[K_DOWN]:
         key_direction.y = +1
-    assert key_direction.length() != 0     
-    key_direction.normalize()
+    if key_direction.length() != 0:        
+        key_direction.normalize()
               
     screen.blit(background, (0,0))
     screen.blit(sprite, sprite_pos)

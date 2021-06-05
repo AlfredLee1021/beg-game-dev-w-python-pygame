@@ -4,8 +4,9 @@ sprite_image_filename = 'fugu.png'
 import pygame
 from pygame.locals import *
 from sys import exit
-from gameobjects.vector2 import Vector2
+# import pygame.math as math
 from math import *
+from pygame.math import Vector2
 
 pygame.init()
 screen = pygame.display.set_mode((640, 480), 0, 32)
