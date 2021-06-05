@@ -33,7 +33,7 @@ while True:
     
     destination = math.Vector2(pygame.mouse.get_pos()) - math.Vector2(sprite.get_size())/2
     vector_to_mouse = destination - position
-    vector_to_mouse = math.Vector2(vector_to_mouse.x/vector_to_mouse.length(), vector_to_mouse.y/vector_to_mouse.length())
+    vector_to_mouse = vector_to_mouse.normalize()
     heading = heading + vector_to_mouse    
     
     position += heading * time_passed_seconds
